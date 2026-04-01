@@ -91,62 +91,15 @@
       color: rgba(240,232,218,0.55); margin-bottom: 56px; line-height: 2;
     }
 
-    /* ── LEATHER CARD CASE CSS ILLUSTRATION ── */
-    .case-scene {
-      width: 100%; max-width: 380px; height: 220px;
+    /* ── PRODUCT IMAGE ── */
+    .product-img-wrap {
+      width: 100%; max-width: 360px;
       margin: 0 auto 56px; position: relative;
-      display: flex; align-items: center; justify-content: center;
     }
-    .case-shadow {
-      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
-      width: 200px; height: 16px;
-      background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%);
-      filter: blur(10px);
-    }
-    /* Three layered cards */
-    .case-layer {
-      position: absolute;
-      width: 168px; height: 108px;
-      border-radius: 5px;
-    }
-    .case-layer-3 {
-      background: linear-gradient(140deg, #3d2010 0%, #1a0d06 100%);
-      transform: rotate(-6deg) translateY(-10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
-    .case-layer-2 {
-      background: linear-gradient(140deg, #7a4a28 0%, #4a2810 100%);
-      transform: rotate(-3deg) translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    .case-layer-1 {
-      background: linear-gradient(140deg, #c8884a 0%, #a0602a 40%, #7a4020 100%);
-      box-shadow: 0 10px 32px rgba(0,0,0,0.45);
-      border: 1px solid rgba(200,136,74,0.25);
-      overflow: hidden;
-    }
-    /* Leather grain */
-    .case-layer-1::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        43deg, transparent, transparent 4px,
-        rgba(0,0,0,0.06) 4px, rgba(0,0,0,0.06) 5px
-      );
-    }
-    /* Stitch simulation */
-    .case-layer-1::after {
-      content: '';
-      position: absolute; inset: 7px;
-      border: 1px dashed rgba(255,255,255,0.18);
-      border-radius: 3px;
-    }
-    .case-monogram {
-      position: absolute; bottom: 16px; right: 20px;
-      font-family: 'EB Garamond', serif;
-      font-size: 20px; font-style: italic;
-      color: rgba(255,255,255,0.18); letter-spacing: 4px;
-      z-index: 1;
+    .product-img-wrap img {
+      width: 100%; display: block;
+      border-radius: 4px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
     }
 
     /* ── FUNDING ── */
@@ -462,14 +415,9 @@
   <h1>毎日手に取るものだから、<br><em>一生もの</em>を持ってほしい。</h1>
   <p class="hero-sub">浅草の職人が一枚一枚仕立てる<br>経年変化を楽しむ本革名刺入れ「KAKUREGA」</p>
 
-  <!-- CSS Leather Card Case Illustration -->
-  <div class="case-scene">
-    <div class="case-shadow"></div>
-    <div class="case-layer case-layer-3"></div>
-    <div class="case-layer case-layer-2"></div>
-    <div class="case-layer case-layer-1">
-      <div class="case-monogram">KK</div>
-    </div>
+  <!-- Product Image -->
+  <div class="product-img-wrap">
+    <img src="product.webp" alt="KAKUREGA 本革名刺入れ — 内部構造">
   </div>
 
   <div class="fund-wrap">
