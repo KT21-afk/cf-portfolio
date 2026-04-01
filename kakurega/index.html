@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAKUREGA — 浅草の職人が一枚から仕立てる本革名刺入れ | Makuake</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Hiragino Mincho ProN','Hiragino Serif','Georgia',serif;color:#2c1a0e;line-height:1.8;background:#faf8f5}
+
+    /* ── ヘッダー ── */
+    .hd{background:#2c1a0e;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .hd-logo{color:#d4a96a;font-size:20px;font-weight:700;letter-spacing:3px}
+    .hd-btn{background:#d4a96a;color:#2c1a0e;border:none;padding:9px 22px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:1px}
+
+    /* ── ヒーロー ── */
+    .hero{background:linear-gradient(160deg,#2c1a0e 0%,#4a2c14 50%,#6b3a1f 100%);padding:72px 24px 56px;text-align:center;color:#f5ede0}
+    .hero-tag{display:inline-block;border:1px solid rgba(212,169,106,.4);color:#d4a96a;font-size:10px;padding:5px 16px;margin-bottom:20px;letter-spacing:4px;text-transform:uppercase;font-family:'Hiragino Sans',sans-serif}
+    .hero h1{font-size:clamp(24px,5vw,44px);font-weight:700;line-height:1.4;margin-bottom:16px;letter-spacing:.05em}
+    .hero h1 em{color:#d4a96a;font-style:normal}
+    .hero-sub{font-size:15px;color:rgba(245,237,224,.65);margin-bottom:40px;font-family:'Hiragino Sans',sans-serif;letter-spacing:.05em}
+
+    .mock{width:100%;max-width:500px;height:280px;margin:0 auto 36px;background:linear-gradient(135deg,#6b3a1f,#2c1a0e);border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(212,169,106,.2)}
+    .mock::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,169,106,.08) 0%,transparent 60%)}
+    .mock-icon{font-size:80px;position:relative;z-index:1}
+
+    .fund-box{background:rgba(255,255,255,.06);border:1px solid rgba(212,169,106,.25);border-radius:4px;padding:22px;max-width:500px;margin:0 auto;text-align:left}
+    .fund-nums{display:flex;gap:24px;margin-bottom:14px;flex-wrap:wrap}
+    .fund-val{font-size:24px;font-weight:700;color:#f5ede0;font-family:'Hiragino Sans',sans-serif}
+    .fund-val span{font-size:12px;font-weight:400;color:rgba(245,237,224,.5)}
+    .fund-lbl{font-size:10px;color:rgba(245,237,224,.4);margin-top:3px;letter-spacing:1px;font-family:'Hiragino Sans',sans-serif}
+    .bar-out{background:rgba(255,255,255,.1);border-radius:2px;height:6px;overflow:hidden;margin-bottom:8px}
+    .bar-in{height:100%;background:linear-gradient(90deg,#d4a96a,#b8833a);border-radius:2px;width:142%;animation:grow 1.4s ease-out}
+    @keyframes grow{from{width:0}}
+    .bar-note{font-size:11px;color:rgba(245,237,224,.5);font-family:'Hiragino Sans',sans-serif}
+    .bar-note strong{color:#d4a96a}
+
+    .sup-btn{display:block;width:100%;max-width:500px;margin:18px auto 0;background:#d4a96a;color:#2c1a0e;border:none;padding:16px;border-radius:3px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:2px;font-family:'Hiragino Sans',sans-serif}
+
+    /* ── セクション共通 ── */
+    .sec{padding:72px 24px;max-width:720px;margin:0 auto}
+    .sec-tag{font-size:9px;color:#b8833a;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;font-family:'Hiragino Sans',sans-serif}
+    .sec h2{font-size:clamp(20px,4vw,30px);font-weight:700;margin-bottom:24px;color:#2c1a0e;letter-spacing:.05em;line-height:1.4}
+    .sec p{font-size:15px;color:#4a3020;margin-bottom:18px;line-height:1.9}
+    hr.div{border:none;border-top:1px solid #e8ddd0;margin:0 24px}
+
+    /* ── 引用 ── */
+    .quote{background:#fff;border-left:3px solid #d4a96a;padding:18px 22px;margin-bottom:14px;border-radius:0 4px 4px 0}
+    .quote p{margin:0;font-size:15px;color:#2c1a0e;font-style:italic}
+
+    /* ── プロセス ── */
+    .process{display:flex;flex-direction:column;gap:0;margin-top:28px}
+    .proc-item{display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative}
+    .proc-item:not(:last-child)::before{content:'';position:absolute;left:17px;top:36px;bottom:0;width:2px;background:#e8ddd0}
+    .proc-num{width:36px;height:36px;background:#d4a96a;color:#2c1a0e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;font-family:'Hiragino Sans',sans-serif;position:relative;z-index:1}
+    .proc-title{font-weight:700;font-size:15px;margin-bottom:4px;letter-spacing:.03em}
+    .proc-desc{font-size:13px;color:#6b4c30;line-height:1.7;font-family:'Hiragino Sans',sans-serif}
+
+    /* ── こだわり ── */
+    .craft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:28px}
+    .craft-card{background:#fff;border:1px solid #e8ddd0;border-radius:4px;padding:24px 20px}
+    .craft-icon{font-size:32px;margin-bottom:12px}
+    .craft-title{font-size:14px;font-weight:700;color:#2c1a0e;margin-bottom:8px;letter-spacing:.05em}
+    .craft-desc{font-size:12px;color:#6b4c30;line-height:1.7;font-family:'Hiragino Sans',sans-serif}
+
+    /* ── スペック ── */
+    .spec-tbl{width:100%;border-collapse:collapse;margin-top:16px}
+    .spec-tbl tr{border-bottom:1px solid #e8ddd0}
+    .spec-tbl td{padding:14px 8px;font-size:14px}
+    .spec-tbl td:first-child{color:#8b6840;width:38%;font-family:'Hiragino Sans',sans-serif}
+    .spec-tbl td:last-child{font-weight:500;color:#2c1a0e}
+
+    /* ── プラン ── */
+    .plans{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+    .plan{border:1px solid #e8ddd0;border-radius:4px;padding:24px;background:#fff;position:relative}
+    .plan.hot{border-color:#d4a96a;border-width:2px}
+    .plan-badge{position:absolute;top:-10px;left:20px;background:#d4a96a;color:#2c1a0e;font-size:10px;font-weight:700;padding:3px 12px;border-radius:2px;letter-spacing:1px;font-family:'Hiragino Sans',sans-serif}
+    .plan-name{font-size:15px;font-weight:700;margin-bottom:4px;letter-spacing:.05em}
+    .plan-price{font-size:28px;font-weight:700;color:#b8833a;margin-bottom:8px;font-family:'Hiragino Sans',sans-serif}
+    .plan-price span{font-size:13px;font-weight:400;color:#8b6840}
+    .plan-desc{font-size:13px;color:#6b4c30;margin-bottom:12px;font-family:'Hiragino Sans',sans-serif;line-height:1.7}
+    .plan-ul{list-style:none;margin-bottom:12px}
+    .plan-ul li{font-size:13px;color:#4a3020;padding:3px 0;font-family:'Hiragino Sans',sans-serif}
+    .plan-ul li::before{content:'— ';color:#d4a96a}
+    .plan-rem{font-size:12px;color:#c0392b;font-weight:700;margin-bottom:10px;font-family:'Hiragino Sans',sans-serif}
+    .plan-btn{display:block;width:100%;background:#2c1a0e;color:#d4a96a;border:none;padding:13px;border-radius:3px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:1px;font-family:'Hiragino Sans',sans-serif}
+
+    /* ── 職人紹介 ── */
+    .artisan{display:flex;gap:24px;align-items:flex-start;background:#fff;border:1px solid #e8ddd0;border-radius:4px;padding:28px}
+    .a-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6b3a1f,#2c1a0e);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+    .a-name{font-weight:700;font-size:17px;margin-bottom:3px;letter-spacing:.05em}
+    .a-role{font-size:11px;color:#b8833a;margin-bottom:10px;letter-spacing:2px;font-family:'Hiragino Sans',sans-serif;text-transform:uppercase}
+    .a-bio{font-size:13px;color:#4a3020;line-height:1.8;font-family:'Hiragino Sans',sans-serif}
+
+    /* ── FAQ ── */
+    .faq-list{margin-top:20px}
+    .faq-item{border-bottom:1px solid #e8ddd0;padding:20px 0}
+    .faq-q{font-weight:700;font-size:14px;color:#2c1a0e;margin-bottom:8px}
+    .faq-q::before{content:'Q. ';color:#d4a96a}
+    .faq-a{font-size:13px;color:#6b4c30;font-family:'Hiragino Sans',sans-serif;line-height:1.7}
+    .faq-a::before{content:'A. ';color:#c8b8a0;font-weight:700}
+
+    /* ── フッター ── */
+    .ft{background:#2c1a0e;color:rgba(245,237,224,.35);text-align:center;padding:40px 24px;font-size:11px;font-family:'Hiragino Sans',sans-serif;letter-spacing:1px}
+    .ft p{margin-bottom:8px}
+    .ft-brand{color:#d4a96a;font-size:16px;font-weight:700;letter-spacing:4px;margin-bottom:16px;font-family:'Hiragino Mincho ProN',serif}
+  </style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-logo">Makuake</div>
+  <button class="hd-btn">このプロジェクトを応援する</button>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">Leather Craft / Asakusa</div>
+  <h1>毎日手に取るものだから、<br><em>一生もの</em>を持ってほしい。</h1>
+  <p class="hero-sub">浅草の革職人が一枚一枚仕立てる、経年変化を楽しむ本革名刺入れ「KAKUREGA」</p>
+
+  <div class="mock"><div class="mock-icon">🗂️</div></div>
+
+  <div class="fund-box">
+    <div class="fund-nums">
+      <div><div class="fund-val">2,136,000<span>円</span></div><div class="fund-lbl">支援総額</div></div>
+      <div><div class="fund-val">142<span>%</span></div><div class="fund-lbl">達成率</div></div>
+      <div><div class="fund-val">89<span>人</span></div><div class="fund-lbl">応援者数</div></div>
+      <div><div class="fund-val">6<span>日</span></div><div class="fund-lbl">残り</div></div>
+    </div>
+    <div class="bar-out"><div class="bar-in"></div></div>
+    <p class="bar-note">目標 <strong>1,500,000円</strong> 達成済み。残り6日で最終目標へ。</p>
+  </div>
+  <button class="sup-btn">▶ KAKUREGAを応援する</button>
+</section>
+
+<section class="sec">
+  <div class="sec-tag">Story</div>
+  <h2>「安くて軽い」が溢れる時代に、<br>あえて重みを持つ名刺入れを</h2>
+  <p>名刺入れは、初対面の相手に最初に見せる道具です。でも多くの人は、コンビニで買ったまま何年も使い続けている。</p>
+  <p>浅草で40年以上、革小物を作り続けてきた職人・久保田俊夫はそのことを惜しいと言います。「革は使うほど育つ。5年後、10年後、自分だけの色になっていく。そういうものを持ってほしい。」</p>
+  <p>KAKUREGAは、その言葉から生まれました。</p>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">Commitment</div>
+  <h2>4つのこだわり</h2>
+  <div class="craft-grid">
+    <div class="craft-card">
+      <div class="craft-icon">🐄</div>
+      <div class="craft-title">栃木レザー使用</div>
+      <div class="craft-desc">国内最高峰のタンニン鞣し革を使用。使うほど飴色に深みを増し、自分だけの表情になります</div>
+    </div>
+    <div class="craft-card">
+      <div class="craft-icon">✂️</div>
+      <div class="craft-title">一点一点の手縫い</div>
+      <div class="craft-desc">ミシンではなく手縫いで仕上げます。麻糸を使った菱縫いは、切れにくく修繕もしやすい</div>
+    </div>
+    <div class="craft-card">
+      <div class="craft-icon">🎨</div>
+      <div class="craft-title">コバの手磨き仕上げ</div>
+      <div class="craft-desc">革の断面（コバ）を手で何度も磨き上げ、なめらかに仕上げます。ここに職人の時間が宿ります</div>
+    </div>
+    <div class="craft-card">
+      <div class="craft-icon">📏</div>
+      <div class="craft-title">名刺20枚のジャストサイズ</div>
+      <div class="craft-desc">多すぎず少なすぎない名刺20枚が収まる設計。胸ポケットにすっと入るコンパクトな厚み</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">Process</div>
+  <h2>一枚の革が<br>名刺入れになるまで</h2>
+  <div class="process">
+    <div class="proc-item">
+      <div class="proc-num">1</div>
+      <div>
+        <div class="proc-title">革の選定・裁断</div>
+        <div class="proc-desc">栃木レザーの原皮から、均一な厚みの良い部分だけを選んで手裁断。機械裁断では出せない精度で型を取ります。</div>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">2</div>
+      <div>
+        <div class="proc-title">コバの処理・磨き</div>
+        <div class="proc-desc">切り出した革の断面にトコノールを塗り、ガラス棒で何度も磨き上げます。ここだけで30分以上かかる作業です。</div>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">3</div>
+      <div>
+        <div class="proc-title">菱目打ち・手縫い</div>
+        <div class="proc-desc">縫い目の位置を菱目打ちで均等に打ち、麻糸で手縫い。針を2本使うサドルステッチで、切れにくく美しい縫い目に仕上げます。</div>
+      </div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-num">4</div>
+      <div>
+        <div class="proc-title">最終仕上げ・検品</div>
+        <div class="proc-desc">全体を軽くオイルでケアし、縫い目・コバ・革面の状態を職人が目視で確認。合格したものだけを梱包します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">Spec</div>
+  <h2>製品詳細</h2>
+  <table class="spec-tbl">
+    <tr><td>素材</td><td>栃木レザー（タンニン鞣しヌメ革）</td></tr>
+    <tr><td>サイズ</td><td>縦60mm × 横100mm × 厚さ10mm（名刺20枚収納時）</td></tr>
+    <tr><td>カード収納</td><td>名刺最大20枚</td></tr>
+    <tr><td>縫製</td><td>手縫い（サドルステッチ・麻糸）</td></tr>
+    <tr><td>カラー</td><td>ナチュラル / チョコ / ブラック / ネイビー</td></tr>
+    <tr><td>製造</td><td>東京・浅草（職人手作り）</td></tr>
+    <tr><td>重量</td><td>約40g</td></tr>
+    <tr><td>イニシャル刻印</td><td>オプションあり（アルファベット1〜3文字）</td></tr>
+  </table>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">Plan</div>
+  <h2>応援プランを選ぶ</h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">アーリーサポーター</div>
+      <div class="plan-price">14,800<span>円（税込）</span></div>
+      <div class="plan-desc">一般発売予定価格（19,800円）より25%OFF。カラーを4色から選べます。</div>
+      <ul class="plan-ul">
+        <li>KAKUREGA 名刺入れ × 1（カラー選択）</li>
+        <li>職人手書きのお手入れカード</li>
+        <li>専用ギフトボックス</li>
+      </ul>
+      <p class="plan-rem">残り 12個</p>
+      <button class="plan-btn">このプランを応援する</button>
+    </div>
+    <div class="plan hot">
+      <div class="plan-badge">人気 No.1</div>
+      <div class="plan-name">イニシャル刻印セット</div>
+      <div class="plan-price">17,800<span>円（税込）</span></div>
+      <div class="plan-desc">イニシャル刻印（1〜3文字）付き。世界でひとつの名刺入れになります。ギフトにも人気。</div>
+      <ul class="plan-ul">
+        <li>KAKUREGA 名刺入れ × 1（カラー選択）</li>
+        <li>イニシャル刻印（アルファベット1〜3文字）</li>
+        <li>職人手書きのお手入れカード</li>
+        <li>専用ギフトボックス + リボンラッピング</li>
+      </ul>
+      <button class="plan-btn">このプランを応援する</button>
+    </div>
+    <div class="plan">
+      <div class="plan-name">ペアギフトセット</div>
+      <div class="plan-price">32,000<span>円（税込）</span></div>
+      <div class="plan-desc">2個セット。それぞれカラー・イニシャルを別々に指定できます。昇進・就職祝いに。</div>
+      <ul class="plan-ul">
+        <li>KAKUREGA 名刺入れ × 2（各カラー・刻印選択）</li>
+        <li>職人手書きのお手入れカード × 2</li>
+        <li>専用ギフトボックス × 2 + リボンラッピング</li>
+        <li>メッセージカード（任意）</li>
+      </ul>
+      <button class="plan-btn">このプランを応援する</button>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">Artisan</div>
+  <h2>職人プロフィール</h2>
+  <div class="artisan">
+    <div class="a-avatar">🧑‍🎨</div>
+    <div>
+      <div class="a-name">久保田 俊夫（Toshio Kubota）</div>
+      <div class="a-role">革職人 / 浅草工房 主宰</div>
+      <div class="a-bio">1960年東京生まれ。19歳から浅草の革工房で修行を始め、40年以上一貫して本革小物を手作りし続ける。年間制作数を意図的に絞り、一点一点の品質を優先する姿勢を守る。「物を売るのではなく、その人の人生に入っていく道具を作っている」が口癖。2025年より初のクラウドファンディングに挑戦。</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section class="sec">
+  <div class="sec-tag">FAQ</div>
+  <h2>よくある質問</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">届くまでにどのくらいかかりますか？</div>
+      <div class="faq-a">プロジェクト終了後、2026年6月のお届けを予定しています。一点一点手作りのため、通常より時間をいただきますがご了承ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">革のお手入れ方法を教えてください。</div>
+      <div class="faq-a">同梱のお手入れカードに詳しく記載しています。基本は乾いた布で拭くだけで大丈夫です。2〜3ヶ月に一度、革用クリームを薄く塗ると長持ちします。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">イニシャル刻印の文字フォントは選べますか？</div>
+      <div class="faq-a">ローマン体とゴシック体の2種類からお選びいただけます。支援後にメッセージでご希望をお知らせください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">修繕・メンテナンスは対応していますか？</div>
+      <div class="faq-a">縫い直しなど、工房での修繕対応が可能です。別途費用がかかりますが、愛着ある品を長く使っていただけるよう対応します。</div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-brand">KAKUREGA</div>
+  <p>KAKUREGA Project × Makuake</p>
+  <p style="margin-top:6px">浅草工房 久保田俊夫 / 東京都台東区</p>
+  <p style="font-size:10px;margin-top:12px">※ このページはポートフォリオ用のデモページです</p>
+  <p style="margin-top:6px">© 2026 KAKUREGA. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
